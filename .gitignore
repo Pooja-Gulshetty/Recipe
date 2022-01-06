@@ -1,0 +1,6 @@
+target/
+target/*
+.idea
+mics.xml
+vcs.xml
+*.iml
