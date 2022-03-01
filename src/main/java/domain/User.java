@@ -9,26 +9,36 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 public class User {
+
     @Column(name = "name")
     private String name;
-    @Column(name = "Email")
+
+    @Column(name = "email")
     private String email;
-    @Column(name = "phoneNumber")
     @Id
-    private int phooneNumber;
+    @Column(name = "userId")
+    private int userId;
+
+    @Column(name = "phoneNumber")
+    private int phoneNumber;
+
 
     protected User() {
 
     }
+
     @JsonCreator
     public User(@JsonProperty("name") String name,
-                @JsonProperty("Email") String email,
-                @JsonProperty("phoneNumber") int phooneNumber) {
+                @JsonProperty("email") String email,
+                @JsonProperty("userId") int userId,
+                @JsonProperty("phoneNumber") int phoneNumber) {
+
         this.name = name;
         this.email = email;
-        this.phooneNumber = phooneNumber;
+        this.userId=userId;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getname() {
@@ -39,8 +49,10 @@ public class User {
         return email;
     }
 
-    public int getPhooneNumber() {
-        return phooneNumber;
+    public int getuserId(){return userId;}
+
+    public int getphoneNumber() {
+        return phoneNumber;
     }
 
     @Override
@@ -48,7 +60,24 @@ public class User {
         return "User{" +
                 "name='" + name + '\'' +
                 ", Email='" + email + '\'' +
-                ", phooneNumber=" + phooneNumber +
+                ", userId='" + userId + '\'' +
+                ", phoneNumber=" + phoneNumber +
                 '}';
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public void setPhoneNumber(int phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

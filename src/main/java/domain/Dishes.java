@@ -5,58 +5,97 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "dishes")
 public class Dishes {
-    @Column(name = "recipe_name")
-    private String recipeName;
-    @Column(name = "country_name")
-    private String countryName;
-    @Column(name = "type")
-    private String type;
+    @Column(name = "recipename")
+    private String recipename;
+    @Column(name = "countryname")
+    private String countryname;
+    @Column(name = "foodtype")
+    private String foodtype;
     @Column(name = "preparation")
     private String preparation;
+    private List<Ingredients>ingredients;
 
     protected Dishes() {
 
     }
 
     @JsonCreator
-    public Dishes(@JsonProperty("recipe_name") String recipeName,
-                  @JsonProperty("country_name") String countryName,
-                  @JsonProperty("type") String type,
-                  @JsonProperty("preparation") String preparation) {
-        this.recipeName = recipeName;
-        this.countryName = countryName;
-        this.type = type;
+    public Dishes(@JsonProperty("recipename") String recipename,
+                  @JsonProperty("countryName") String countryname,
+                  @JsonProperty("foodtype") String foodtype,
+                  @JsonProperty("preparation") String preparation,
+
+                  @JsonProperty("ingredients") List<Ingredients> ingredients) {
+        this.recipename = recipename;
+        this.countryname = countryname;
+        this.foodtype = foodtype;
         this.preparation = preparation;
+        this.ingredients = ingredients;
     }
 
-    public String getRecipeName() {
-        return recipeName;
+    public String getRecipename() {
+        return recipename;
     }
 
-    public String getCountryName() {
-        return countryName;
+    public String getCountryname() {
+        return countryname;
     }
 
-    public String getType() {
-        return type;
+    public String getFoodtype() {
+        return foodtype;
     }
 
     public String getPreparation() {
         return preparation;
     }
 
+    public List<Ingredients> getIngredients() {
+        return ingredients;
+    }
+
     @Override
     public String toString() {
         return "Dishes{" +
-                "recipeName='" + recipeName + '\'' +
-                ", countryName='" + countryName + '\'' +
-                ", type='" + type + '\'' +
+                "recipename='" + recipename + '\'' +
+                ", countryname='" + countryname + '\'' +
+                ", foodtype='" + foodtype + '\'' +
                 ", preparation='" + preparation + '\'' +
+                ", ingredients=" + ingredients +
                 '}';
+    }
+
+    public void setRecipename(String recipename) {
+        this.recipename = recipename;
+    }
+
+    public void setCountryname(String countryname) {
+        this.countryname = countryname;
+    }
+
+    public void setFoodtype(String foodtype) {
+        this.foodtype = foodtype;
+    }
+
+    public void setPreparation(String preparation) {
+        this.preparation = preparation;
+    }
+
+    public void setIngredients(List<Ingredients> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
