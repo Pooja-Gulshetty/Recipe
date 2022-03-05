@@ -20,7 +20,9 @@ public class Dishes {
     private String foodtype;
     @Column(name = "preparation")
     private String preparation;
-    private List<Ingredients>ingredients;
+    @Id
+    private Long id;
+    //private List<Ingredients>ingredients;
 
     protected Dishes() {
 
@@ -37,7 +39,7 @@ public class Dishes {
         this.countryname = countryname;
         this.foodtype = foodtype;
         this.preparation = preparation;
-        this.ingredients = ingredients;
+        //this.ingredients = ingredients;
     }
 
     public String getRecipename() {
@@ -56,9 +58,9 @@ public class Dishes {
         return preparation;
     }
 
-    public List<Ingredients> getIngredients() {
-        return ingredients;
-    }
+   // public List<Ingredients> getIngredients() {
+        //return ingredients;
+    //}
 
     @Override
     public String toString() {
@@ -67,7 +69,7 @@ public class Dishes {
                 ", countryname='" + countryname + '\'' +
                 ", foodtype='" + foodtype + '\'' +
                 ", preparation='" + preparation + '\'' +
-                ", ingredients=" + ingredients +
+                //", ingredients=" + ingredients +
                 '}';
     }
 
@@ -87,10 +89,6 @@ public class Dishes {
         this.preparation = preparation;
     }
 
-    public void setIngredients(List<Ingredients> ingredients) {
-        this.ingredients = ingredients;
-    }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -98,4 +96,16 @@ public class Dishes {
     public Long getId() {
         return id;
     }
-}
+
+    // public void setIngredients(List<Ingredients> ingredients) {
+      //  this.ingredients = ingredients;
+    }
+
+   // public void setId(Long id) {
+        //this.id = id;
+  //  }
+
+    //public Long getId() {
+      //  return id;
+  //  }
+//}

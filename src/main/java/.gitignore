@@ -1,6 +1,7 @@
-target/
+../../../target/
 target/*
 .idea
+.idea/**
 mics.xml
 vcs.xml
 *.iml
